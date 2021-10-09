@@ -62,6 +62,11 @@ import UIKit
         return ThemeColorPicker(v: { ThemeManager.element(for: colors) })
     }
     
+    var cgColor: ThemeCGColorPicker {
+        return ThemeCGColorPicker(v: {
+            (self.value() as? UIColor)?.cgColor
+        })
+    }
 }
 
 extension ThemeColorPicker: ExpressibleByArrayLiteral {}

@@ -66,6 +66,20 @@ import UIKit
         return ThemeCGColorPicker(v: { ThemeManager.element(for: colors)?.cgColor })
     }
     
+    var uiColor: ThemeColorPicker {
+        return ThemeColorPicker(v: {
+            maybeCast(self.value(), to: CGColor.self)
+                .map({ UIColor(cgColor: $0) })
+        })
+    }
+}
+
+/// https://stackoverflow.com/a/43927394
+func maybeCast<T>(_ value: T, to cfType: CGColor.Type) -> CGColor? {
+    guard CFGetTypeID(value as CFTypeRef) == cfType.typeID else {
+        return nil
+    }
+    return (value as! CGColor)
 }
 
 extension ThemeCGColorPicker: ExpressibleByArrayLiteral {}
