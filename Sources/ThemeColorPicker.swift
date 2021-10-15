@@ -67,6 +67,12 @@ import UIKit
             (self.value() as? UIColor)?.cgColor
         })
     }
+
+    func map(_ map: @escaping (UIColor?) -> UIColor?) -> ThemeCGColorPicker {
+        return ThemeCGColorPicker(v: {
+            map(self.value() as? UIColor)?.cgColor
+        })
+    }
 }
 
 extension ThemeColorPicker: ExpressibleByArrayLiteral {}

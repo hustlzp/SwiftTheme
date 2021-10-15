@@ -72,6 +72,12 @@ import UIKit
                 .map({ UIColor(cgColor: $0) })
         })
     }
+
+    func map(_ map: @escaping (CGColor?) -> CGColor?) -> ThemeColorPicker {
+        return ThemeColorPicker(v: {
+            map(maybeCast(self.value(), to: CGColor.self))
+        })
+    }
 }
 
 /// https://stackoverflow.com/a/43927394
