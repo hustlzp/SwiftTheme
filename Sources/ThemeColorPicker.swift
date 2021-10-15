@@ -70,7 +70,7 @@ import UIKit
 
     func map(_ map: @escaping (UIColor?) -> UIColor?) -> ThemeColorPicker {
         return ThemeColorPicker(v: {
-            map(self.value() as? UIColor)?.cgColor
+            map(self.value() as? UIColor)
         })
     }
 }
