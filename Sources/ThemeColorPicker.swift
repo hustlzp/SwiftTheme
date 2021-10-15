@@ -68,8 +68,8 @@ import UIKit
         })
     }
 
-    func map(_ map: @escaping (UIColor?) -> UIColor?) -> ThemeCGColorPicker {
-        return ThemeCGColorPicker(v: {
+    func map(_ map: @escaping (UIColor?) -> UIColor?) -> ThemeColorPicker {
+        return ThemeColorPicker(v: {
             map(self.value() as? UIColor)?.cgColor
         })
     }
